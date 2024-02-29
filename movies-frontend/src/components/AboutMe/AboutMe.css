@@ -49,6 +49,7 @@
   margin: 0;
   padding: 0 0 99px 0;
   max-width: 600px; 
+  min-height: 88px;
 }
 
 .aboutme__link {
@@ -112,7 +113,8 @@
     font-size: 12px;
     line-height: 18px;
     padding: 0 0 87px 0;
-    max-width: 364px; 
+    max-width: 364px;
+    min-height: 108px; 
   }
    
   .aboutme__avatar {
@@ -160,6 +162,7 @@
     line-height: 16px;
     padding: 0 0 40px 0;
     max-width: 292px;
+    min-height: 112px; 
   }
    
   .aboutme__avatar {
@@ -171,7 +174,6 @@
     left: 0;
   }
 }
-
 
 @media screen and (max-width: 320px) {
   .aboutme__container {
