@@ -10,25 +10,23 @@
 }
 
 .header__link {
-  height: 38px;
-};
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+
+.header__link:hover {
+  opacity: .65;
+}
 
 .header__logo {
   height: 38px;
   width: 38px;
-  width: 100%;
   background-repeat: no-repeat;
   z-index: 1;
   -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: center;
   object-position: center;
-  transition: opacity .2s linear;
-  cursor: pointer;
-}
-
-.header__logo:hover {
-  opacity: .65;
 }
 
 @media screen and (max-width: 768px) {

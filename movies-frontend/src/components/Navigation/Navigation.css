@@ -1,5 +1,6 @@
 .navigation {
   width: 58.125%;
+  z-index: 100;
 }
 
 .navigation__menu-button {
