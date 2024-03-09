@@ -24,22 +24,28 @@
 }
 
 .moviescardlist__button {
-  background-color: #FFFFFF;
+  background-color: #F9F9F9;
   text-align: center;
   font-size: 12px;
   font-weight: 500;
   line-height: 15px;
   color: #000000;
   border: none;
-  margin: 61px auto 89px;
+  margin: 50px auto 80px;
   transition: opacity .2s linear;
   cursor: pointer;
   width: 200px;
-  height: 16px;
+  padding: 11px 60px 9px 60px;
 }
 
 .moviescardlist__button:hover {
   opacity: .65;
+}
+
+@media screen and (max-width: 1279.5px) {
+  .moviescardlist__cards {
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 768px) {

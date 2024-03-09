@@ -12,7 +12,6 @@ function Promo() {
       <NavTab />
       <img className="promo__logo" src={logo} alt="Логотип лендинга" />
     </div>
-    
   </section>
   );
 }

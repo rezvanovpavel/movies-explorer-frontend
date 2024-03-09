@@ -3,22 +3,6 @@
   max-width: 129px;
 }
 
-.navtab__button {
-  -webkit-transition: opacity 0.3s linear 0.3s;
-  -o-transition: opacity 0.3s linear 0.3s;
-  transition: opacity 0.3s linear 0.3s;
-  cursor: pointer;
-  border-radius: 3px;
-  border: 1px solid #ffffff;
-  background-color: #073042;
-  width: 129px;
-  height: 36px;
-}
-
-.navtab__button:hover {
-  opacity: 0.65;
-}
-
 .navtab__link {
   color: #ffffff;
   text-decoration: none;
@@ -26,6 +10,21 @@
   font-size: 12px;
   line-height: 16px;
   font-weight: 500;
+  -webkit-transition: opacity 0.3s linear 0.3s;
+  -o-transition: opacity 0.3s linear 0.3s;
+  transition: opacity 0.3s linear 0.3s;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid #ffffff;
+  background-color: #073042;
+  width: 89px;
+  height: 16px;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+.navtab__link:hover {
+  opacity: 0.65;
 }
 
 @media screen and (max-width: 1115px) {
