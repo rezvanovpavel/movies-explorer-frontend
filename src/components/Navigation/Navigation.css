@@ -1,6 +1,7 @@
 .navigation {
-  width: 58.125%;
+  width: 52.73%;
   z-index: 100;
+  padding-right: 70px;
 }
 
 .navigation__menu-button {
@@ -128,6 +129,11 @@
 }
 
 @media screen and (max-width: 768px) {
+
+  .navigation {
+    padding-right: 30px;
+  }
+
   .navigation__menu-button {
     display: flex;
   }
@@ -186,6 +192,10 @@
     padding-bottom: 5px;
     border-bottom: 2px solid #000000;
   }
+
+  .navigation__link_type_authorization{
+    color: #000000;
+  }
   
   .navigation__link_type_account {
     background-color: #FFFFFF;
@@ -196,7 +206,11 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 570px) {
+
+  .navigation {
+    padding-right: 14px;
+  }
   
   .navigation__bar {
     padding: 13.44px 13.44px 46px;

@@ -24,7 +24,7 @@ function Register() {
           </div>
           <div className="register__item">
             <p className="register__item-text">Пароль</p>
-            <input className="register__input" type="text" name="password" required id="password"/>
+            <input className="register__input" type="text" placeholder="••••••••••••••" name="password" required id="password"/>
             <span className="register__error register__error_active">Что-то пошло не так...</span>
           </div>
       </form>

@@ -19,7 +19,7 @@ function Login() {
           </div>
           <div className="login__item">
             <p className="login__item-text">Пароль</p>
-            <input className="login__input" type="text" name="password" required id="password"/>
+            <input className="login__input" type="text" name="password" required id="password" placeholder="••••••••••••••"/>
             <span className="login__error register__error_active">Что-то пошло не так...</span>
           </div>
       </form>

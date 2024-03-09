@@ -1,11 +1,13 @@
 .promo {
   background-color: #073042;
-  position: relative;
 }
 
 .promo__container {
   display: flex;
   flex-direction: column;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
 }
 
 .promo__title {

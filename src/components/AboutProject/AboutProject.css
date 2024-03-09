@@ -1,5 +1,10 @@
 .aboutproject {
-  margin: 0 70px;
+  background-color: #FFFFFF;
+}
+
+.aboutproject__container {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .aboutproject__title {
@@ -8,17 +13,17 @@
   line-height: 27px;
   padding: 110px 0 24px 0;
   letter-spacing: -1px;
-  margin: 0;
+  margin: 0 70px;
   color: #000000;
+  border-bottom: 1px solid #000000;
 }
 
 .matrix {
-  list-style: none;
   margin: 0;
+  list-style: none;
   display: flex;
   justify-content: space-between;
-  padding: 70px 0 110px 0;
-  border-top: 1px solid #000000;
+  padding: 70px 70px 110px 70px;
   column-gap: 40px;
 }
 
@@ -45,11 +50,10 @@
 }
 
 .schedule {
-  margin: 0;
+  padding: 0 70px 110px 70px;
   display: grid;
   grid-template-rows: 36px;
   grid-template-columns: 228px 1fr;
-  padding-bottom: 110px;
 }
 
 .schedule__title{
@@ -82,16 +86,13 @@
 
 @media screen and (max-width: 768px) {
 
-  .aboutproject {
-    margin: 0 50px 0 50px;
-  }
-  
   .aboutproject__title {
     padding: 90px 0 23px 0;
+    margin: 0 50px;
   }
   
   .matrix {
-    padding: 70px 0 93px 0;
+    padding: 70px 50px 93px 50px;
     column-gap: 30px;
   }
   
@@ -109,7 +110,7 @@
   }
   
   .schedule {
-    padding-bottom: 90px;
+    padding: 0 50px 90px 50px;
     grid-template-columns: 140px 1fr;
   }
     
@@ -125,18 +126,15 @@
 
 @media screen and (max-width: 570px) {
 
-  .aboutproject {
-    margin: 0 18px 0 18px;
-  }
-  
   .aboutproject__title {
+    margin: 0 18px;
     padding: 70px 0 28px 0;
     font-size: 18px;
     line-height: 22px;
   }
   
   .matrix {
-    padding: 60px 0 60px 0;
+    padding: 60px 18px 60px 18px;
     row-gap: 56px;
     flex-direction: column;
   }
@@ -157,7 +155,7 @@
   }
   
   .schedule {
-    padding-bottom: 69px;
+    padding: 0 18px 69px 18px;
     grid-template-rows: 35px;
     grid-template-columns: 100px 1fr;
   }

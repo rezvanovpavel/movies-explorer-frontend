@@ -12,10 +12,12 @@ function Header (props) {
 
   return (
     <header className={`header ${location.pathname === '/' ? 'header_type_authorization' : ''}`}>
-      <Link to="/" className="header__link">
-        <img className="header__logo" src={logo} alt="Лого"></img>
-      </Link>
-      {loggedIn ? <Navigation /> : <NavAuthorization />}
+      <div className="header__container">
+        <Link to="/" className="header__link">
+          <img className="header__logo" src={logo} alt="Лого"></img>
+        </Link>
+        {loggedIn ? <Navigation /> : <NavAuthorization />}
+      </div>
     </header>
   );
 };
