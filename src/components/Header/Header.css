@@ -1,0 +1,49 @@
+.header {
+  background-color: #FFFFFF;
+}
+
+.header_type_authorization {
+  background-color: #073042;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header__link {
+  transition: opacity .2s linear;
+  cursor: pointer;
+  padding-left: 70px;
+}
+
+.header__link:hover {
+  opacity: .65;
+}
+
+.header__logo {
+  height: 38px;
+  width: 38px;
+  background-repeat: no-repeat;
+  z-index: 1;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  .header__link {
+    padding-left: 30px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .header__link {
+    padding-left: 14px;
+  }
+}

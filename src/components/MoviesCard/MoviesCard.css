@@ -1,0 +1,95 @@
+.moviesсard {
+  width: 270px;
+}
+
+.moviesсard__image {
+  height: 151px;
+  width: 270px;
+  background-repeat: no-repeat;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  padding-bottom: 14px;
+}
+
+.moviesсard__container {
+  padding-bottom: 29px;
+  border-bottom: solid 1px #E8E8E8;
+  display: flex;
+  justify-content: space-between;
+}
+
+.moviesсard__title {
+  color: #000000;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  margin: 0;
+  align-self: center;
+}
+
+.moviesсard__button{
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0;
+  border: none;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.moviesсard__button_active {
+  background-image: url("../../images/like.svg");
+}
+
+.moviesсard__button_disabled {
+  background-image: url("../../images/white-like.svg");
+}
+
+.moviesсard__button_type_delete {
+  background-image: url("../../images/cross.svg");
+}
+
+.moviesсard__duration {
+  color: #A0A0A0;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  margin: 0;
+  padding-top: 6px;
+}
+
+@media screen and (max-width: 768px) {
+  .moviesсard {
+    width: 339px;
+  }
+  
+  .moviesсard__image {
+    height: 190px;
+    width: 339px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .moviesсard {
+    width: 300px;
+  }
+  
+  .moviesсard__image {
+    height: 168px;
+    width: 300px;
+    padding-bottom: 15px;
+  }
+  
+  .moviesсard__title {
+    font-size: 12px;
+    line-height: 15px;
+  }
+   
+  .moviesсard__duration {
+    font-size: 10px;
+    line-height: 12px;
+  }
+}

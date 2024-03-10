@@ -1,0 +1,137 @@
+.profile {
+  margin: 0 auto;
+  max-width: 410px;
+}
+
+.profile__title {
+  margin: 0;
+  padding: 74px 0 123px 0;
+  text-align: center;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+}
+
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  width: 410px;
+}
+
+.profile__item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: solid 1px #E8E8E8;
+}
+
+.profile__item:last-child {
+  padding-bottom: 0;
+  border: none;
+}
+
+.profile__text {
+  margin: 0;
+  color: #000000;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13px;
+}
+
+.profile__input {
+  outline: none;
+  color: #000000;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  text-align: right;
+  border: none;
+  padding: 0;
+}
+
+.profile__container-button {
+  padding-top: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile__button-edit {
+  color: #000000;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  border: none;
+  background-color: #FFFFFF;
+  padding: 0;
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+
+.profile__button-edit:hover {
+  opacity: .65;
+}
+
+.profile__link {
+  text-decoration: none;
+  color: #FF3055;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+  padding-bottom: 70px;
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+
+.profile__link:hover {
+  opacity: .65;
+}
+
+@media screen and (max-width: 768px) {
+
+  .profile__title {
+    padding: 236px 0 96px 0;
+  }
+
+  .profile__container-button {
+    padding-top: 210px;
+  }
+  
+  .profile__link {
+    padding-bottom: 269px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+
+  .profile {
+    max-width: 260px;
+  }
+
+  .profile__title {
+    padding: 70px 0 80px 0;
+  }
+  
+  .profile__form {
+    width: 260px;
+  }
+  
+  .profile__container-button {
+    padding-top: 379px;
+  }
+  
+  .profile__button-edit {
+    font-size: 12px;
+    line-height: 14px;
+  }
+  
+  .profile__link {
+    font-size: 12px;
+    line-height: 15px;
+    padding-bottom: 40px;
+  }
+}

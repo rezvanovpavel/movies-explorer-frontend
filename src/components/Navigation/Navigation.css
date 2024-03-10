@@ -1,0 +1,227 @@
+.navigation {
+  width: 52.73%;
+  z-index: 100;
+  padding-right: 70px;
+}
+
+.navigation__menu-button {
+  display: none;
+  margin-left: auto;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-image: url("../../images/menu-white.svg");
+  background-position: center;
+  transition: opacity 0.2s linear;
+  cursor: pointer;
+  border: none;
+}
+
+.navigation__menu-button:hover {
+  opacity: 0.65;
+}
+
+.navigation__menu-button_type_not-main{
+  background-image: url("../../images/menu.svg");
+}
+
+.navigation__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation__list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation__close-button {
+  display: none;
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-image: url("../../images/close.svg");
+  background-position: center;
+  align-self: flex-end;
+  transition: opacity 0.2s linear;
+  cursor: pointer;
+  border: none;
+}
+
+.navigation__close-button:hover {
+  opacity: 0.65;
+}
+
+.navigation__list {
+  display: flex;
+  column-gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__list-item_type_main {
+  display: none;
+}
+
+.navigation__link {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #000000;
+  transition: opacity 0.2s linear;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navigation__link_active  {
+  font-weight: 500;
+}
+
+.navigation__link_type_authorization{
+  color: #FFFFFF;
+}
+
+.navigation__link:hover {
+  opacity: 0.65;
+}
+
+.navigation__link_type_account {
+  background-color: #2BE080;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 32px;
+}
+
+.navigation__link_type_not-main {
+  background-color: #FFFFFF;
+}
+
+.navigation__text-account {
+  color: #000000;
+  margin: 0 7px 0 11px;
+  line-height: 12px;
+  font-weight: 500;
+}
+
+.navigation__profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: #F9F9F9;
+  border-radius: 50px;
+}
+
+.navigation__profile-icon {
+  background-image: url("../../images/man.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 10.38px;
+  height: 10.67px;  
+}
+
+@media screen and (max-width: 768px) {
+
+  .navigation {
+    padding-right: 30px;
+  }
+
+  .navigation__menu-button {
+    display: flex;
+  }
+
+  .navigation__container {
+    display: none;
+  }
+
+  .navigation__container_active {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+  }
+
+  .navigation__bar {
+    box-sizing: border-box;
+    width: 520px;
+    margin-left: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    padding: 22.44px 22.44px 90px;
+  }
+
+  .navigation__list-container {
+    width: 100%;
+  }
+
+  .navigation__close-button {
+    display: flex;
+  }
+
+  .navigation__list {
+    flex-direction: column;
+    align-items: center;
+    margin: 112.16px auto 0;
+    row-gap: 29px;
+  }
+
+  .navigation__list-item_type_main {
+    display: flex;
+  }
+
+  .navigation__link {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    text-decoration: none;
+  }
+
+  .navigation__link_active  {
+    padding-bottom: 5px;
+    border-bottom: 2px solid #000000;
+  }
+
+  .navigation__link_type_authorization{
+    color: #000000;
+  }
+  
+  .navigation__link_type_account {
+    background-color: #FFFFFF;
+  }
+
+  .navigation__text-account {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+
+  .navigation {
+    padding-right: 14px;
+  }
+  
+  .navigation__bar {
+    padding: 13.44px 13.44px 46px;
+  }
+  
+  .navigation__list {
+    margin: 106.16px auto 0;
+    row-gap: 24px;
+  }
+
+  .navigation__link_active  {
+    padding-bottom: 7px;
+  }
+}

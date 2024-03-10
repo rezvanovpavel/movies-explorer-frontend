@@ -1,0 +1,174 @@
+.aboutproject {
+  background-color: #FFFFFF;
+}
+
+.aboutproject__container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.aboutproject__title {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 27px;
+  padding: 110px 0 24px 0;
+  letter-spacing: -1px;
+  margin: 0 70px;
+  color: #000000;
+  border-bottom: 1px solid #000000;
+}
+
+.matrix {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 70px 70px 110px 70px;
+  column-gap: 40px;
+}
+
+.matrix__cell{
+  max-width: 550px;
+}
+
+.matrix__heading {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  padding-bottom: 26px;
+  letter-spacing: -1px;
+  color: #000000;
+}
+
+.matrix__text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000000;
+}
+
+.schedule {
+  padding: 0 70px 110px 70px;
+  display: grid;
+  grid-template-rows: 36px;
+  grid-template-columns: 228px 1fr;
+}
+
+.schedule__title{
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  margin: 0;
+  color: #000000;
+  padding: 9px 0;
+}
+
+.schedule__title_type_one-week{
+  background-color: #2BE080;
+}
+
+.schedule__title_type_four-week{
+  background-color: #F2F2F2;
+}
+
+.schedule__text {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  color: #A0A0A0;
+  padding: 14px 14px 0 14px;
+}
+
+@media screen and (max-width: 768px) {
+
+  .aboutproject__title {
+    padding: 90px 0 23px 0;
+    margin: 0 50px;
+  }
+  
+  .matrix {
+    padding: 70px 50px 93px 50px;
+    column-gap: 30px;
+  }
+  
+  .matrix__cell{
+    max-width: 319px;
+  }
+  
+  .matrix__heading {
+    padding-bottom: 22px;
+  }
+  
+  .matrix__text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  
+  .schedule {
+    padding: 0 50px 90px 50px;
+    grid-template-columns: 140px 1fr;
+  }
+    
+  .schedule__title {
+    padding: 9px 0;
+  }
+
+  .schedule__text {
+    font-weight: 400;
+    padding: 14px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 570px) {
+
+  .aboutproject__title {
+    margin: 0 18px;
+    padding: 70px 0 28px 0;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  
+  .matrix {
+    padding: 60px 18px 60px 18px;
+    row-gap: 56px;
+    flex-direction: column;
+  }
+  
+  .matrix__cell{
+    max-width: 100%;
+  }
+  
+  .matrix__heading {
+    padding-bottom: 16px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  
+  .matrix__text {
+    font-size: 11px;
+    line-height: 16px;
+  }
+  
+  .schedule {
+    padding: 0 18px 69px 18px;
+    grid-template-rows: 35px;
+    grid-template-columns: 100px 1fr;
+  }
+
+  .schedule__title{
+    padding: 11px 0;
+    font-size: 11px;
+    line-height: 13px;
+  }
+    
+  .schedule__text {    
+    padding: 14px 0;
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
