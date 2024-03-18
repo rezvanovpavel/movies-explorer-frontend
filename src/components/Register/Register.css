@@ -37,14 +37,17 @@
 .register__form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
   width: 396px;
-  padding-bottom: 65px;
+  margin-bottom: 16px;
 }
 
 .register__item {
   display: flex;
   flex-direction: column;
+}
+
+.register__item:nth-child(-n + 2) {
+  margin-bottom: 24px;
 }
 
 .register__item-text {
@@ -89,12 +92,18 @@
   display: flex;
 }
 
-.register__container-button {
-  padding-top: 69px;
+.register__button-error{
+  margin-top: 134px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding-bottom: 70px;
+}
+
+.register__error_type_total {
+  padding: 0;
+  align-self: center;
+  padding-bottom: 20px;
+  font-size: 11px;
+  line-height: 13px;
 }
 
 .register__button-register {
@@ -112,7 +121,13 @@
   padding: 13px 0 15px 0;
 }
 
-.register__button-register :hover {
+.register__container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 70px;
+}
+
+.register__button-register:hover {
   opacity: .65;
 }
 
@@ -152,7 +167,7 @@
     padding: 232px 0 40px 0;
   }
    
-  .register__container-button {
+  .register__container {
     padding-bottom: 232px;
   }
 }
@@ -172,12 +187,15 @@
   
   .register__form {
     width: 260px;
+    margin-bottom: 14px;
   }
   
-  .register__container-button {
-    padding-top: 157px;
-    gap: 14px;
+  .register__container {
     padding-bottom: 30px;
+  }
+
+  .register__button-error{
+    margin-top: 222px;
   }
   
   .register__button-register {
