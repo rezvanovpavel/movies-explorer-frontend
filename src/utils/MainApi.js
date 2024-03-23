@@ -1,7 +1,6 @@
 class MainApi {
-    constructor({baseUrl, headers}) {
+    constructor({baseUrl}) {
       this._baseUrl = baseUrl;
-      this._headers = headers;
     }
 
     getCurrentUserInfo() {
@@ -9,7 +8,10 @@ class MainApi {
  
      return fetch(url, {
        method: 'GET',
-       headers: this._headers,
+       headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+       },
      })
      .then(res => this._checkResponseStatusServer(res));
     }
@@ -19,7 +21,10 @@ class MainApi {
  
      return fetch(url, {
        method: 'GET',
-       headers: this._headers,
+       headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+       },
      })
      .then(res => this._checkResponseStatusServer(res));
     }
@@ -28,7 +33,10 @@ class MainApi {
      const url = `${this._baseUrl}/users/me`;
      return fetch(url, {
        method: 'PATCH',
-       headers: this._headers,
+       headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+       },
        body: JSON.stringify({
         name: name,
         email: email
@@ -42,7 +50,10 @@ class MainApi {
  
      return fetch(url, {
        method: 'POST',
-       headers: this._headers,
+       headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+       },
        body: JSON.stringify({
         country: data.country,
         director: data.director,
@@ -65,7 +76,10 @@ class MainApi {
  
      return fetch(url, {
        method: 'DELETE',
-       headers: this._headers
+       headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+       },
      })
      .then(res => this._checkResponseStatusServer(res));
     }
@@ -80,10 +94,6 @@ class MainApi {
 
 const mainApi = new MainApi({
   baseUrl: 'https://api.moviesrez.nomoredomainswork.ru',
-  headers: {
-    authorization: `Bearer ${localStorage.getItem('token')}`,
-    'Content-Type': 'application/json'
-  }
 });
 
 export default mainApi

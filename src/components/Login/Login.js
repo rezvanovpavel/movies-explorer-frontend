@@ -31,12 +31,12 @@ function Login(props) {
       <form className="login__form" onSubmit={handleSubmit} noValidate>
           <div className="login__item">
             <p className="login__item-text">E-mail</p>
-            <input className="login__input" type="email" placeholder="pochta@yandex.ru" name="email" required id="email" value={values.email || ""} onChange={handleChange} autoComplete="off" />
+            <input className="login__input" type="email" placeholder="pochta@yandex.ru" name="email" required id="email" value={values.email || ""} onChange={handleChange} />
             <span className={`login__error ${!isValid && errors.email ? "login__error_active" : ""}`}>{errors.email || ""}</span>
           </div>
           <div className="login__item">
             <p className="login__item-text">Пароль</p>
-            <input className="login__input" type="text" name="password" required id="password" placeholder="••••••••••••••" value={values.password || ""} onChange={handleChange} autoComplete="off" />
+            <input className="login__input" type="text" name="password" required id="password" placeholder="••••••••••••••" value={values.password || ""} onChange={handleChange} />
             <span className={`login__error ${!isValid && errors.password ? "login__error_active" : ""}`}>{errors.password || ""}</span>
           </div>
           <div className="login__button-error">
@@ -47,7 +47,7 @@ function Login(props) {
       <div className="login__container"> 
           <div className="login__entrance">
             <p className="login__link-description">Ещё не зарегистрированы?</p>
-            <Link to="/signup" className="login__link-signup">Регистрация</Link>
+            <Link to="/signup" onClick={props.handleClickLoginLink} className="login__link-signup">Регистрация</Link>
           </div>
       </div>
     </section>

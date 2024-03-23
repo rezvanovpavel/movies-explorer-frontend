@@ -16,7 +16,6 @@ function Register(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     props.onSubmit({
       name: values.name,
       email: values.email,

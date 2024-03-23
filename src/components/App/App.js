@@ -7,7 +7,7 @@ import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import PageNotFound from '../PageNotFound/PageNotFound';
-import { Navigate, Routes, Route, useNavigate } from 'react-router-dom';
+import { Navigate, Routes, Route, useNavigate} from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import mainApi from '../../utils/MainApi';
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';
@@ -17,7 +17,6 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 function App() {
   
   const [currentUser, setCurrentUser] = useState({})
-  console.log(currentUser)
 
   const [loggedIn, setLoggedIn]= useState(false)
   const [savedMovies, setSavedMovies] = useState([]);
@@ -26,6 +25,8 @@ function App() {
   const [isErrorLogin, setIsErrorLogin] = useState("");
   const [isErrorRegister, setIsErrorRegister] = useState("");
   const [isErrorProfile, setIsErrorProfile] = useState("");
+
+  const [isEdit, setIsEdit] = useState(false);
 
   const navigate = useNavigate();
 
@@ -53,11 +54,17 @@ function App() {
     mainApi.updateUserInfo(userInfo)
       .then((data) => {
         setCurrentUser(data);
+        setIsError(false);
+        setIsEdit(false);
       })
       .catch((err) => {
         setIsError(true);
+        setIsEdit(true);
         if (Number(err.substr(err.length - 3)) === 409) {
           setIsErrorProfile("Пользователь с таким email уже существует.");
+        };
+        if (Number(err.substr(err.length - 3)) === 400) {
+          setIsErrorProfile("Переданы некорректные данные");
         };
         if (Number(err.substr(err.length - 3)) === 500) {
           setIsErrorProfile("При обновлении профиля произошла ошибка.");
@@ -65,17 +72,13 @@ function App() {
         console.log(err);
       });
   }
-
-  function handleLogin (e) {
-    e.preventDefault();
-    setLoggedIn(true)
-  }
  
   function handleRegisterSubmit({ password, email, name }) {
     register(password, email, name)
       .then((res) => {
         if (res) {
           navigate('/signin', {replace: true});
+          setIsError(false);
         }
       })
       .catch((err) => {
@@ -110,6 +113,7 @@ function App() {
     setCurrentUser({})
     localStorage.clear();
     setLoggedIn(false);
+    setIsError(false);
   }
 
   function handleLoginSubmit({ password, email }) {
@@ -119,6 +123,7 @@ function App() {
           localStorage.setItem('token', data.token);
           setLoggedIn(true);
           navigate("/movies", {replace: true});
+          setIsError(false);
         }
       })
       .catch((err) => {
@@ -156,7 +161,15 @@ function App() {
           console.log(err);
         });
     }
-  } 
+  }
+  
+  function handleClickLoginLink () {
+    setIsError(false);
+  }
+
+  function handleClickEdit() {
+    setIsEdit(!isEdit);
+  }
 
   return (
     <div className="App">
@@ -167,10 +180,10 @@ function App() {
           <Route path="/movies" element= {<ProtectedRoute element={Movies} loggedIn={loggedIn} />} />
           <Route path="/saved-movies" element={loggedIn ? <SavedMovies savedMovies={savedMovies} loggedIn={loggedIn} onMovieDelete = {handleMovieDelete} /> : <Navigate to="/signin" replace />} />
           <Route path="/saved-movies" element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} />} />
-          <Route path="/profile" element={loggedIn ? <Profile loggedIn={loggedIn} onLogout={handleLogout} onUpdateUser={handleUpdateUser} isError={isError} isErrorLogin={isErrorProfile}
+          <Route path="/profile" element={loggedIn ? <Profile loggedIn={loggedIn} onLogout={handleLogout} onUpdateUser={handleUpdateUser} isError={isError} isErrorProfile={isErrorProfile} isEdit={isEdit} handleClickEdit={handleClickEdit}
            /> : <Navigate to="/signin" replace />} />
           <Route path="/profile" element={<ProtectedRoute element={Profile} loggedIn={loggedIn} />} />
-          <Route path="/signin" element={ <Login onSubmit = {handleLoginSubmit} handleLogin={handleLogin} isError={isError} isErrorLogin={isErrorLogin} />} />
+          <Route path="/signin" element={ <Login onSubmit = {handleLoginSubmit} isError={isError} isErrorLogin={isErrorLogin} handleClickLoginLink={handleClickLoginLink} />} />
           <Route path="/signup" element={ <Register onSubmit={handleRegisterSubmit} isError={isError} isErrorRegister={isErrorRegister} />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

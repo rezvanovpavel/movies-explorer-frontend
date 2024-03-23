@@ -1,6 +1,8 @@
 .profile {
   margin: 0 auto;
   max-width: 410px;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile__title {
@@ -109,7 +111,6 @@
   padding-top: 220px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
 .profile__button-edit {
@@ -139,6 +140,7 @@
   padding-bottom: 70px;
   transition: opacity .2s linear;
   cursor: pointer;
+  padding-top: 16px;
 }
 
 .profile__link:hover {
