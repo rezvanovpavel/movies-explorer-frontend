@@ -3,11 +3,11 @@ import logo from '../../images/logo.svg';
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import useFormsValidation from "../../hook/UseFormsValidation";
+import useValidation from "../../hook/useValidation";
 
 function Login(props) {
 
-  const { values, handleChange, errors, isValid, resetForm } = useFormsValidation();
+  const { values, handleChange, errors, isValid, resetForm } = useValidation();
 
   useEffect(() => {
     resetForm();
@@ -15,7 +15,6 @@ function Login(props) {
 
   function handleSubmit (e) {
     e.preventDefault();
-    
     props.onSubmit({
       email: values.email,
       password: values.password,
@@ -41,7 +40,7 @@ function Login(props) {
           </div>
           <div className="login__button-error">
             {props.isError && <span className="login__error login__error_active login__error_type_total">{props.isErrorLogin}</span>}
-            <button className="login__button-login" type="submit" disabled={!isValid}>Войти</button>
+            <button className={`login__button-login ${!isValid ? "login__button-login_disabled" : ""}`} type="submit" disabled={!isValid}>Войти</button>
           </div>
       </form>
       <div className="login__container"> 

@@ -3,12 +3,12 @@ import logo from '../../images/logo.svg';
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import useFormsValidation from "../../hook/UseFormsValidation";
+import useValidation from "../../hook/useValidation";
 
 
 function Register(props) {
 
-  const { values, handleChange, errors, isValid, resetForm } = useFormsValidation();
+  const { values, handleChange, errors, isValid, resetForm } = useValidation();
 
   useEffect(() => {
     resetForm();
@@ -47,7 +47,7 @@ function Register(props) {
           </div>
           <div className="register__button-error">
             {props.isError && <span className="register__error register__error_active register__error_type_total">{props.isErrorRegister}</span>}
-            <button className="register__button-register" type="submit" disabled={!isValid}>Зарегистрироваться </button>
+            <button className={`register__button-register ${!isValid ? "register__button-register_disabled" : ""}`} type="submit" disabled={!isValid}>Зарегистрироваться </button>
           </div>
       </form>
       <div className="register__container"> 

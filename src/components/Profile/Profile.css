@@ -107,6 +107,11 @@
   opacity: .65;
 }
 
+.profile__button-save_disabled {
+  color: #C2C2C2;
+  background-color: #F8F8F8
+}
+
 .profile__container-button {
   padding-top: 220px;
   display: flex;

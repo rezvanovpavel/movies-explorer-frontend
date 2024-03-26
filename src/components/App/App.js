@@ -16,9 +16,9 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState({});
+  const [loggedIn, setLoggedIn]= useState(false);
 
-  const [loggedIn, setLoggedIn]= useState(false)
   const [savedMovies, setSavedMovies] = useState([]);
 
   const [isError, setIsError] = useState(false);
@@ -38,7 +38,7 @@ function App() {
     if (loggedIn) {
       Promise.all([
         mainApi.getCurrentUserInfo(), 
-        mainApi.getInitialMovies()
+        mainApi.getInitialMovies(),
       ])
          .then((results) => {
           setCurrentUser(results[0])
@@ -77,7 +77,7 @@ function App() {
     register(password, email, name)
       .then((res) => {
         if (res) {
-          navigate('/signin', {replace: true});
+          handleLoginSubmit({ password, email })
           setIsError(false);
         }
       })
@@ -133,25 +133,14 @@ function App() {
       });
   }
 
-  function handleMovieDelete(movie) {
-    mainApi.deleteMovie(movie._id)
-      .then(() => {
-        setSavedMovies((movies) => movies.filter((m) => m._id !== movie._id));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
   function handleMovieLike(movie) {
-    const isLiked = savedMovies.some(element => movie._id === element.movieId);
-
-    const clickMovie = savedMovies.filter((movie) => {
-      return movie.movieId === movie._id
+    const isLiked = savedMovies.some(m => movie.id === m.movieId);
+    const clickMovie = savedMovies.filter((m) => {
+      return m.movieId === movie.id
     })
 
     if (isLiked) {
-      handleMovieDelete(clickMovie[0]._id)
+      handleMovieDelete(clickMovie[0])
     } else {
       mainApi.createNewMovie(movie)
         .then(res => {
@@ -162,7 +151,17 @@ function App() {
         });
     }
   }
-  
+
+  function handleMovieDelete(movie) {
+    mainApi.deleteMovie(movie._id)
+      .then(() => {
+        setSavedMovies((savedMovies) => savedMovies.filter((m) => m._id !== movie._id));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   function handleClickLoginLink () {
     setIsError(false);
   }
@@ -176,12 +175,12 @@ function App() {
       <CurrentUserContext.Provider value={currentUser}>
         <Routes>
           <Route path="/" element={<Main loggedIn={loggedIn} />} />
-          <Route path="/movies" element={loggedIn ? <Movies savedMovies={savedMovies} loggedIn={loggedIn} onMovieLike = {handleMovieLike} /> : <Navigate to="/signin" replace />} />
+          <Route path="/movies" element={loggedIn ? <Movies savedMovies={savedMovies} loggedIn={loggedIn} onMovieLike = {handleMovieLike} /> : <Navigate to="/" replace />} />
           <Route path="/movies" element= {<ProtectedRoute element={Movies} loggedIn={loggedIn} />} />
-          <Route path="/saved-movies" element={loggedIn ? <SavedMovies savedMovies={savedMovies} loggedIn={loggedIn} onMovieDelete = {handleMovieDelete} /> : <Navigate to="/signin" replace />} />
+          <Route path="/saved-movies" element={loggedIn ? <SavedMovies savedMovies={savedMovies} loggedIn={loggedIn} onMovieDelete = {handleMovieDelete} /> : <Navigate to="/" replace />} />
           <Route path="/saved-movies" element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} />} />
           <Route path="/profile" element={loggedIn ? <Profile loggedIn={loggedIn} onLogout={handleLogout} onUpdateUser={handleUpdateUser} isError={isError} isErrorProfile={isErrorProfile} isEdit={isEdit} handleClickEdit={handleClickEdit}
-           /> : <Navigate to="/signin" replace />} />
+           /> : <Navigate to="/" replace />} />
           <Route path="/profile" element={<ProtectedRoute element={Profile} loggedIn={loggedIn} />} />
           <Route path="/signin" element={ <Login onSubmit = {handleLoginSubmit} isError={isError} isErrorLogin={isErrorLogin} handleClickLoginLink={handleClickLoginLink} />} />
           <Route path="/signup" element={ <Register onSubmit={handleRegisterSubmit} isError={isError} isErrorRegister={isErrorRegister} />} />

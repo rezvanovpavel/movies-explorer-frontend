@@ -121,6 +121,15 @@
   padding: 13px 0 15px 0;
 }
 
+.register__button-register:hover {
+  opacity: .65;
+}
+
+.register__button-register_disabled {
+  color: #C2C2C2;
+  background-color: #F8F8F8
+}
+
 .register__container {
   display: flex;
   flex-direction: column;

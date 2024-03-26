@@ -121,6 +121,15 @@
   padding: 13px 0 15px 0;
 }
 
+.login__button-login:hover {
+  opacity: .65;
+}
+
+.login__button-login_disabled {
+  color: #C2C2C2;
+  background-color: #F8F8F8
+}
+
 .login__container {
   display: flex;
   flex-direction: column;

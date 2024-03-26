@@ -1,7 +1,7 @@
 import React from "react";
 import { useCallback } from "react";
 
-function useFormsValidation() {
+function useValidation() {
   const [values, setValues] = React.useState({});
   const [errors, setErrors] = React.useState({});
   const [isValid, setIsValid] = React.useState(false);
@@ -17,17 +17,17 @@ function useFormsValidation() {
 
     if (name === 'name') {
       if (!target.checkValidity()) {
-        setErrors({ ...errors, [name]: 'Количество символов: минимум 2, максимум 30' });
+        setErrors({...errors, [name]: 'Имя должно содержать только латиницу, кириллицу, пробел или дефис. Количество символов: минимум 2, максимум 30' });
       } else {
-        setErrors({ ...errors, [name]: '' });
+        setErrors({...errors, [name]: '' });
       }
     }
 
     if (name === 'search') {
       if (value === null || value === '') {
-        setErrors({ ...errors, [name]: 'Нужно ввести ключевое слово' });
+        setErrors({...errors, [name]: 'Нужно ввести ключевое слово' });
       } else {
-        setErrors({ ...errors, [name]: '' });
+        setErrors({...errors, [name]: '' });
       }
     }
   };
@@ -44,4 +44,4 @@ function useFormsValidation() {
   return { setValues, values, handleChange, errors, isValid, resetForm };
 }
 
-export default useFormsValidation;
+export default useValidation;
