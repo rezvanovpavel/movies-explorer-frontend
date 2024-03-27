@@ -5,6 +5,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Footer from '../Footer/Footer';
 import moviesApi from "../../utils/MoviesApi";
 import { useState,useEffect, useCallback } from 'react';
+import LIMIT_DURATION_MOVIE from "../../utils/constants.js";
 
 function Movies(props) {
 
@@ -24,7 +25,7 @@ function Movies(props) {
 
     setFilterArrayMovies(movies.filter((movie) => {
       const searchInputText = movie.nameRU.toLowerCase().includes(search.toLowerCase());
-      return isShortMovie ? (searchInputText && movie.duration <= 40) : searchInputText
+      return isShortMovie ? (searchInputText && movie.duration <= LIMIT_DURATION_MOVIE) : searchInputText
     }));
   }, []);
 
