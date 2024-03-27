@@ -5,7 +5,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Footer from '../Footer/Footer';
 import { useState, useCallback,useEffect } from "react";
-import LIMIT_DURATION_MOVIE from "../../utils/constants.js";
+import { LIMIT_DURATION_MOVIE } from "../../utils/constants.js";
 
 function SavedMovies(props) {
 

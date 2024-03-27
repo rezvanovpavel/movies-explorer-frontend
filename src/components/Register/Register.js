@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import useValidation from "../../hook/useValidation";
 
-
 function Register(props) {
 
   const { values, handleChange, errors, isValid, resetForm } = useValidation();
@@ -32,12 +31,12 @@ function Register(props) {
       <form className="register__form" onSubmit={handleSubmit} noValidate>
           <div className="register__item">
             <p className="register__item-text">Имя</p>
-            <input className="register__input" type="text" placeholder="Виталий" name="name" minLength="2" maxLength="30" required id="name" value={values.name || ""} onChange={handleChange} autoComplete="off"/>
+            <input className="register__input" type="text" placeholder="Виталий" name="name" minLength="2" maxLength="30" required id="name" value={values.name || ""} onChange={handleChange} autoComplete="off" />
             <span className={`register__error ${!isValid && errors.name ? "register__error_active" : ""}`}>{errors.name}</span>
           </div>
           <div className="register__item">
             <p className="register__item-text">E-mail</p>
-            <input className="register__input" type="email" placeholder="pochta@yandex.ru" name="email" required id="email" value={values.email || ""} onChange={handleChange} autoComplete="off"/>
+            <input className="register__input" type="email" placeholder="pochta@yandex.ru" name="email" required id="email" value={values.email || ""} onChange={handleChange} autoComplete="off" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"/>
             <span className={`register__error ${!isValid && errors.email ? "register__error_active" : ""}`}>{errors.email}</span>
           </div>
           <div className="register__item">

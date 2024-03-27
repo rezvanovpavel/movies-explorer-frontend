@@ -1,3 +1,1 @@
-const LIMIT_DURATION_MOVIE = 40;
-
-export default LIMIT_DURATION_MOVIE
+export const LIMIT_DURATION_MOVIE = 40;

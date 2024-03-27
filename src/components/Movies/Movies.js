@@ -5,7 +5,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Footer from '../Footer/Footer';
 import moviesApi from "../../utils/MoviesApi";
 import { useState,useEffect, useCallback } from 'react';
-import LIMIT_DURATION_MOVIE from "../../utils/constants.js";
+import { LIMIT_DURATION_MOVIE } from "../../utils/constants.js";
 
 function Movies(props) {
 
