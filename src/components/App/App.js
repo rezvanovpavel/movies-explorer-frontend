@@ -97,15 +97,15 @@ function App() {
     if (localStorage.getItem('token')){
       const token = localStorage.getItem('token');
       checkToken(token)
-      .then((res) => {
-        if (res.data){
-          setLoggedIn(true);
-          navigate("/movies", {replace: true})
-        }
-      })
-      .catch((err) => {
-       console.log(`Ошибка: ${err.status}`);
-      });
+        .then((res) => {
+          if (res){
+            setLoggedIn(true);
+            navigate("/movies", {replace: true})
+          }
+        })
+        .catch((err) => {
+        console.log(`Ошибка: ${err.status}`);
+        });
     }
   }
 
