@@ -41,7 +41,7 @@ function Register(props) {
           </div>
           <div className="register__item">
             <p className="register__item-text">Пароль</p>
-            <input className="register__input" type="text" placeholder="••••••••••••••" name="password" required id="password" value={values.password || ""} onChange={handleChange} autoComplete="off" />
+            <input className="register__input" type="password" placeholder="••••••••••••••" name="password" required id="password" value={values.password || ""} onChange={handleChange} autoComplete="off" />
             <span className={`register__error ${!isValid && errors.password ? "register__error_active" : ""}`}>{errors.password}</span>
           </div>
           <div className="register__button-error">

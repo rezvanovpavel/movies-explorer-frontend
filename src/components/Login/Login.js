@@ -35,7 +35,7 @@ function Login(props) {
           </div>
           <div className="login__item">
             <p className="login__item-text">Пароль</p>
-            <input className="login__input" type="text" name="password" required id="password" placeholder="••••••••••••••" value={values.password || ""} onChange={handleChange} />
+            <input className="login__input" type="password" name="password" required id="password" placeholder="••••••••••••••" value={values.password || ""} onChange={handleChange} />
             <span className={`login__error ${!isValid && errors.password ? "login__error_active" : ""}`}>{errors.password || ""}</span>
           </div>
           <div className="login__button-error">
