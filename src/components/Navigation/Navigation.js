@@ -5,7 +5,6 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 function Navigation () {
 
   const [menu, setMenu] = useState(false);
-
   const location = useLocation();;
 
   function handleSwitchMenu () {

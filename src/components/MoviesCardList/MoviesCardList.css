@@ -16,6 +16,14 @@
   padding: 0 70px 10px 70px;
 }
 
+.moviescardlist__error {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .moviescardlist__button-container {
   display: flex;
   flex-direction: row;
@@ -40,6 +48,10 @@
 
 .moviescardlist__button:hover {
   opacity: .65;
+}
+
+.moviescardlist__button_hidden {
+  visibility: hidden;
 }
 
 @media screen and (max-width: 1279.5px) {

@@ -23,6 +23,14 @@
   line-height: 34px;
   border: none;
   padding: 0;
+  outline: none;
+}
+
+.searchform__error {
+  color: #EE3465;
+  font-size: 11px;
+  font-weight: 500;
+  padding-top: 8px;
 }
 
 .searchform__submit-button {

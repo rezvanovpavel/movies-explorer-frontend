@@ -3,12 +3,10 @@ import logo from '../../images/logo.svg';
 import { Link, useLocation} from 'react-router-dom';
 import NavAuthorization from '../NavAuthorization/NavAuthorization';
 import Navigation from '../Navigation/Navigation';
-import { useState } from 'react';
 
 function Header (props) {
-  const location = useLocation();
 
-  const [loggedIn, setLoggedIn] = useState(true);
+  const location = useLocation();
 
   return (
     <header className={`header ${location.pathname === '/' ? 'header_type_authorization' : ''}`}>
@@ -16,7 +14,7 @@ function Header (props) {
         <Link to="/" className="header__link">
           <img className="header__logo" src={logo} alt="Лого"></img>
         </Link>
-        {loggedIn ? <Navigation /> : <NavAuthorization />}
+        {props.loggedIn ? <Navigation /> : <NavAuthorization />}
       </div>
     </header>
   );
