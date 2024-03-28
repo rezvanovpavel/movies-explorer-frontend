@@ -60,6 +60,7 @@ function Profile(props) {
             </div>
           ) : (
           <>
+            {props.isSuccessful && <span className='profile__successful'> {props.successful()} Данные успешно сохранены</span>}
             <div className="profile__container-button"> 
               <button className="profile__button-edit" type="button" onClick={handleClick}>Редактировать</button>
             </div>

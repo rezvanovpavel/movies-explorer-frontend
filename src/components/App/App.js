@@ -18,6 +18,7 @@ function App() {
   
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn]= useState(false);
+  const [isSuccessful, setIsSuccessful] = useState(false);
 
   const [savedMovies, setSavedMovies] = useState([]);
 
@@ -63,6 +64,7 @@ function App() {
         setCurrentUser(data);
         setIsError(false);
         setIsEdit(false);
+        setIsSuccessful(true);
       })
       .catch((err) => {
         setIsError(true);
@@ -177,6 +179,12 @@ function App() {
     setIsEdit(!isEdit);
   }
 
+  function successful() {
+    setTimeout(() => {
+      setIsSuccessful(false);
+    }, 1200);
+  }
+
   return (
     <div className="App">
       <CurrentUserContext.Provider value={currentUser}>
@@ -186,7 +194,8 @@ function App() {
           <Route path="/movies" element= {<ProtectedRoute element={Movies} loggedIn={loggedIn} />} />
           <Route path="/saved-movies" element={loggedIn ? <SavedMovies savedMovies={savedMovies} loggedIn={loggedIn} onMovieDelete = {handleMovieDelete} /> : <Navigate to="/" replace />} />
           <Route path="/saved-movies" element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} />} />
-          <Route path="/profile" element={loggedIn ? <Profile loggedIn={loggedIn} onLogout={handleLogout} onUpdateUser={handleUpdateUser} isError={isError} isErrorProfile={isErrorProfile} isEdit={isEdit} handleClickEdit={handleClickEdit}
+          <Route path="/profile" element={loggedIn ? <Profile loggedIn={loggedIn} onLogout={handleLogout} onUpdateUser={handleUpdateUser} isError={isError} isErrorProfile={isErrorProfile} isEdit={isEdit} handleClickEdit={handleClickEdit} isSuccessful={isSuccessful}
+              successful={successful}
            /> : <Navigate to="/" replace />} />
           <Route path="/profile" element={<ProtectedRoute element={Profile} loggedIn={loggedIn} />} />
           <Route path="/signin" element={ <Login onSubmit = {handleLoginSubmit} isError={isError} isErrorLogin={isErrorLogin} handleClickLoginLink={handleClickLoginLink} />} />
