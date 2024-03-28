@@ -7,8 +7,8 @@ import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import PageNotFound from '../PageNotFound/PageNotFound';
-import { Navigate, Routes, Route, useNavigate} from 'react-router-dom';
-import { useState,useEffect } from 'react';
+import { Navigate, Routes, Route, useNavigate, useLocation} from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import mainApi from '../../utils/MainApi';
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';
 import { authorize, register, checkToken } from '../../utils/Auth';
@@ -29,6 +29,7 @@ function App() {
   const [isEdit, setIsEdit] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     handleTokenCheck();
@@ -49,6 +50,12 @@ function App() {
          });
     }
   },[loggedIn]);
+
+  useEffect(() => {
+    if (location.pathname !== "/profile") {
+    setIsEdit(false);
+    }
+  }, [location]);
 
   function handleUpdateUser(userInfo) {
     mainApi.updateUserInfo(userInfo)
