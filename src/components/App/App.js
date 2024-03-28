@@ -109,7 +109,7 @@ function App() {
         .then((res) => {
           if (res){
             setLoggedIn(true);
-            navigate("/movies", {replace: true})
+            navigate(`${location.pathname}`, {replace: true})
           }
         })
         .catch((err) => {
