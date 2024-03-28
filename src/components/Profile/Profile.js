@@ -68,7 +68,7 @@ function Profile(props) {
           </>
           )}
         </form>
-        {!props.isEdit && (<Link to="/signin" className="profile__link" onClick={handleLogoutClick}>Выйти из аккаунта</Link>)}
+        {!props.isEdit && (<Link to="/" className="profile__link" onClick={handleLogoutClick}>Выйти из аккаунта</Link>)}
       </section>
     </>
   );
