@@ -9,6 +9,7 @@ import useValidation from "../../hook/useValidation";
 function Profile(props) {
   const currentUser = React.useContext(CurrentUserContext);
   const { values, handleChange, errors, isValid, resetForm } = useValidation();
+  const validation = isValid && (values.name !== currentUser.name || values.email !== currentUser.email);
 
   useEffect(() => {
     resetForm({
@@ -56,7 +57,7 @@ function Profile(props) {
           {props.isEdit ? (
             <div className="profile__save">
               {props.isError && <span className="profile__error profile__error_active profile__error_type_total">{props.isErrorProfile}</span>}
-              <button className={`profile__button-save ${!isValid ? "profile__button-save_disabled" : ""}`} type="submit" disabled={!isValid && props.isError}>Сохранить</button>
+              <button className={`profile__button-save ${!isValid ? "profile__button-save_disabled" : ""}`} type="submit" disabled={!validation && props.isError}>Сохранить</button>
             </div>
           ) : (
           <>
